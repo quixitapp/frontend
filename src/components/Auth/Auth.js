@@ -80,30 +80,30 @@ class Auth {
       .then(async res => {
         console.log(res.data)
 
-        if (
-          (res.data.isBoarded && res.data.isBoarded === 0) ||
-          res.data.isBoarded === false
-        ) {
-          await localStorage.setItem("userID", res.data.id)
-          history.replace("/onboarding")
-        } else if (
-          (res.data.isBoarded && res.data.isBoarded === 1) ||
-          res.data.isBoarded === true
-        ) {
-          if (res.data.account_type === "homeowner") {
-            localStorage.setItem("userID", res.data.id)
-            localStorage.setItem("firstName", res.data.first_name)
-            history.replace(
-              `/dashboard-homeowner/users/${res.data.id}/projects/`
-            )
-          } else if (res.data.account_type === "contractor") {
-            localStorage.setItem("userID", res.data.id)
-            localStorage.setItem("firstName", res.data.first_name)
-            history.replace(
-              `/dashboard-contractor/users/${res.data.id}/projects/`
-            )
-          }
-        } else history.replace("/onboarding")
+        // if (
+        //   (res.data.isBoarded && res.data.isBoarded === 0) ||
+        //   res.data.isBoarded === false
+        // ) {
+        //   await localStorage.setItem("userID", res.data.id)
+        //   history.replace("/onboarding")
+        // } else if (
+        //   (res.data.isBoarded && res.data.isBoarded === 1) ||
+        //   res.data.isBoarded === true
+        // ) {
+        //   if (res.data.account_type === "homeowner") {
+        //     localStorage.setItem("userID", res.data.id)
+        //     localStorage.setItem("firstName", res.data.first_name)
+        //     history.replace(
+        //       `/dashboard-homeowner/users/${res.data.id}/projects/`
+        //     )
+        //   } else if (res.data.account_type === "contractor") {
+        //     localStorage.setItem("userID", res.data.id)
+        //     localStorage.setItem("firstName", res.data.first_name)
+        //     history.replace(
+        //       `/dashboard-contractor/users/${res.data.id}/projects/`
+        //     )
+        //   }
+        // } else history.replace("/onboarding")
       })
       .catch(({ message }) => console.log(message))
   }
