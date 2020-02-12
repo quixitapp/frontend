@@ -37,7 +37,6 @@ const Signup = () => {
             category,
             zipCode,
           }
-          console.log(contractor)
         }
       } else console.log("Not logged in.")
     })
