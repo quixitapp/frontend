@@ -4,9 +4,7 @@ import { applyMiddleware, createStore, compose } from "redux"
 import { Provider } from "react-redux"
 import thunk from "redux-thunk"
 import logger from "redux-logger"
-import { Router } from "react-router-dom"
-
-import history from "./history"
+import { BrowserRouter as Router } from "react-router-dom"
 import rootReducer from "./redux/reducers"
 import App from "./App"
 import "./index.css"
@@ -22,7 +20,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router>
       <App />
     </Router>
   </Provider>,

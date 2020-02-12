@@ -7,7 +7,7 @@ export const getToken = token => dispatch => {
   axios()
     .post(`${process.env.REACT_APP_API_URL}/api/register`)
     .then(res => {
-      console.log("res= ", res)
+      console.log("res.dat= ", res.data)
       dispatch({ type: GET_TOKEN_SUCCESS, payload: res.data })
     })
     .catch(err => dispatch({ type: GET_TOKEN_FAILURE, payload: err.message }))
