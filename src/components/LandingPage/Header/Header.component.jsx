@@ -9,7 +9,7 @@ import {
   HeaderHero,
   GetStarted,
   HeaderBorder,
-  HeaderImg
+  HeaderImg,
 } from "./Header.styles"
 
 const Header = props => (
@@ -19,9 +19,7 @@ const Header = props => (
         <ContainerFlex>
           <HeaderTitleContainer>
             <HeaderTitle>Home services, at a click of a button.</HeaderTitle>
-            <GetStarted onClick={props.login} to="/">
-              Get Started
-            </GetStarted>
+            <GetStarted to="/signup">Get Started</GetStarted>
           </HeaderTitleContainer>
           <HeaderHero>
             <HeaderImg />

@@ -42,9 +42,7 @@ const NavBar = props => {
             <PageLink to="#">Contact</PageLink>
             <PageLink to="#">About us</PageLink>
             <PageLink to="#">Become a Quixer</PageLink>
-            <PageLink onClick={props.login} to="/">
-              Log in
-            </PageLink>
+            <PageLink to="/login">Log in</PageLink>
           </Links>
         </Navigation>
       </NavContainer>
