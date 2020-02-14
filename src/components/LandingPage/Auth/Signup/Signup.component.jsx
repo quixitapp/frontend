@@ -1,8 +1,10 @@
 import React, { useState } from "react"
-import { auth, provider } from "../../../../configs/firebase"
+import { connect } from "react-redux"
 import { NavLink } from "react-router-dom"
+import { sendToken, registerUser } from "../../../../redux/actions"
+import { auth, provider } from "../../../../configs/firebase"
 
-const Signup = () => {
+const Signup = props => {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
@@ -17,28 +19,42 @@ const Signup = () => {
       .createUserWithEmailAndPassword(email, password)
       .catch(({ message }) => console.log(message))
 
-    auth.onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-        if (!isContractor) {
-          const homeowner = {
-            ...firebaseUser,
-            firstName,
-            lastName,
-            nickname: `@${firstName[0].toLowerCase()}${lastName.toLowerCase()}`,
-          }
-          console.log(homeowner)
-        } else {
-          const contractor = {
-            ...firebaseUser,
-            firstName,
-            nickname: `@${firstName[0].toLowerCase()}${lastName.toLowerCase()}`,
-            lastName,
-            isContractor,
-            category,
-            zipCode,
-          }
-        }
-      } else console.log("Not logged in.")
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        user
+          .getIdToken(true)
+          .then(idToken => {
+            localStorage.setItem("idToken", idToken)
+            if (idToken) {
+              if (!isContractor) {
+                const homeowner = {
+                  uid: user.uid,
+                  firstName,
+                  lastName,
+                  isContractor: false,
+                  email,
+                }
+                props.sendToken(idToken)
+                props.registerUser(homeowner)
+              } else {
+                const contractor = {
+                  uid: user.uid,
+                  firstName,
+                  lastName,
+                  isContractor,
+                  category,
+                  zipCode,
+                  email,
+                }
+                props.sendToken(idToken)
+                props.registerUser(contractor)
+              }
+            } else console.log("Not logged in.")
+          })
+          .catch(err => console.log(err))
+      } else {
+        console.log("error")
+      }
     })
   }
 
@@ -126,4 +142,11 @@ const Signup = () => {
   )
 }
 
-export default Signup
+const mapStateToProps = ({ setTokenReducer, setUserReducer }) => {
+  return {
+    idToken: setTokenReducer.idToken,
+    user: setUserReducer.user,
+  }
+}
+
+export default connect(mapStateToProps, { sendToken, registerUser })(Signup)

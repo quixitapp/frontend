@@ -11,7 +11,7 @@ export const registerUser = user => dispatch => {
   dispatch({ type: REGISTER_USER_START })
 
   axios()
-    .post(`http://localhost:5000/api/register`, user)
+    .post(`${process.env.REACT_APP_API_URL}/api/register`, user)
     .then(res => {
       dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data })
     })

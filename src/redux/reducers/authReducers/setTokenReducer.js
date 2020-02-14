@@ -19,7 +19,7 @@ const setTokenReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isSetting: true,
-        idAuthenticated: false,
+        isAuthenticated: false,
         idToken: "",
         error: null,
       }
@@ -27,7 +27,7 @@ const setTokenReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isSetting: false,
-        idAuthenticated: true,
+        isAuthenticated: true,
         idToken: action.payload,
         error: null,
       }
@@ -35,7 +35,7 @@ const setTokenReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isSetting: false,
-        idAuthenticated: false,
+        isAuthenticated: false,
         idToken: "",
         error: action.payload,
       }

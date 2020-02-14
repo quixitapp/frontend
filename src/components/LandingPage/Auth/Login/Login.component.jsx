@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 import { connect } from "react-redux"
 
 import { auth } from "../../../../configs/firebase"
-import { sendToken } from "../../../../redux/actions/auth/sendToken.actions"
+import { logUser } from "../../../../redux/actions"
 
 const Login = props => {
   const [email, setEmail] = useState("")
@@ -22,7 +22,7 @@ const Login = props => {
       .getIdToken(true)
       .then(idToken => {
         localStorage.setItem("idToken", idToken)
-        props.sendToken(idToken)
+        props.logUser(idToken)
       })
       .catch(({ message }) => console.log(message))
   }
@@ -55,10 +55,10 @@ const Login = props => {
   )
 }
 
-const mapStateToProps = ({ authReducer }, props) => {
+const mapStateToProps = ({ logUserReducer }) => {
   return {
-    idToken: authReducer.idToken,
+    user: logUserReducer.user,
   }
 }
 
-export default connect(mapStateToProps, { sendToken })(Login)
+export default connect(mapStateToProps, { logUser })(Login)

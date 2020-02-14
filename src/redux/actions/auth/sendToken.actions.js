@@ -11,7 +11,7 @@ export const sendToken = token => dispatch => {
   dispatch({ type: SEND_TOKEN_START })
 
   axios()
-    .post(`http://localhost:5000/api/register`)
+    .post(`${process.env.REACT_APP_API_URL}/api/register`)
     .then(res => {
       dispatch({ type: SEND_TOKEN_SUCCESS, payload: res.data })
     })

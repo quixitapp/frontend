@@ -37,6 +37,7 @@ const setUserReducer = (state = INITIAL_STATE, action) => {
         isSetting: false,
         error: action.payload,
       }
+
     default:
       return state
   }
