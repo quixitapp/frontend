@@ -1,3 +1,5 @@
-export { GET_TOKEN_START, GET_TOKEN_SUCCESS, GET_TOKEN_FAILURE } from "./types"
+export { authActionTypes } from "./auth/auth.types"
 
-export { getToken } from "./getToken"
+export { sendToken } from "./auth/sendToken.actions"
+export { registerUser } from "./auth/registerUser.actions"
+export { logUser } from "./auth/logUser.actions"

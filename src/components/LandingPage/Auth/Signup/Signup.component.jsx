@@ -1,10 +1,8 @@
 import React, { useState } from "react"
-import { connect } from "react-redux"
-import { NavLink } from "react-router-dom"
-import { sendToken, registerUser } from "../../../redux/actions"
 import { auth, provider } from "../../../../configs/firebase"
+import { NavLink } from "react-router-dom"
 
-const Signup = props => {
+const Signup = () => {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
@@ -20,39 +18,36 @@ const Signup = props => {
       .catch(({ message }) => console.log(message))
 
     auth.onAuthStateChanged(firebaseUser => {
-      console.log("firebaUser= ", firebaseUser)
-      // if (firebaseUser) {
-      // if (!isContractor) {
-      //   const homeowner = {
-      //     firstName,
-      //     lastName,
-      //     isContractor: false,
-      //     nickname: `@${firstName[0].toLowerCase()}${lastName.toLowerCase()}`,
-      //   }
-      //   props.sendToken(firebaseUser)
-      //   props.registerUser(homeowner)
-      // } else {
-      //   const contractor = {
-      //     firstName,
-      //     nickname: `@${firstName[0].toLowerCase()}${lastName.toLowerCase()}`,
-      //     lastName,
-      //     isContractor,
-      //     category,
-      //     zipCode,
-      //   }
-      //   props.sendToken(firebaseUser)
-      //   props.registerUser(contractor)
-      // }
-      // } else console.log("Not logged in.")
+      if (firebaseUser) {
+        if (!isContractor) {
+          const homeowner = {
+            ...firebaseUser,
+            firstName,
+            lastName,
+            nickname: `@${firstName[0].toLowerCase()}${lastName.toLowerCase()}`,
+          }
+          console.log(homeowner)
+        } else {
+          const contractor = {
+            ...firebaseUser,
+            firstName,
+            nickname: `@${firstName[0].toLowerCase()}${lastName.toLowerCase()}`,
+            lastName,
+            isContractor,
+            category,
+            zipCode,
+          }
+        }
+      } else console.log("Not logged in.")
     })
   }
 
-  // const googleSingIn = () => {
-  //   auth.signInWithPopup(provider).then(result => {
-  //     const user = result.user
-  //     // console.log(user)
-  //   })
-  // }
+  const googleSingIn = () => {
+    auth.signInWithPopup(provider).then(result => {
+      const user = result.user
+      console.log(user)
+    })
+  }
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -131,11 +126,4 @@ const Signup = props => {
   )
 }
 
-const mapStateToProps = ({ setTokenReducer, setUserReducer }) => {
-  return {
-    idToken: setTokenReducer.idToken,
-    user: setUserReducer.user,
-  }
-}
-
-export default connect(mapStateToProps, { sendToken, registerUser })(Signup)
+export default Signup

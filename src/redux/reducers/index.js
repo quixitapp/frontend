@@ -1,6 +1,10 @@
 import { combineReducers } from "redux"
-import { tokenReducer } from "./tokenReducer"
+import setTokenReducer from "./authReducers/setTokenReducer"
+import setUserReducer from "./authReducers/setUserReducer"
+import logUserReducer from "./authReducers/logUserReducer"
 
 export default combineReducers({
-  tokenReducer,
+  setTokenReducer,
+  setUserReducer,
+  logUserReducer,
 })
