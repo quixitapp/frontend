@@ -72,20 +72,27 @@ export const Form = styled.form`
   margin: 0 auto;
 `
 
-export const Submit = styled.input`
+export const ButtonWrapper = styled.button`
   width: 100%;
   height: 60px;
   border: 0;
   border-radius: 10px;
   background: #bef3f8;
   color: #014045;
-  font-size: 1.6rem;
-  font-weight: 600;
-  font-family: "Montserrat Alternates";
   cursor: pointer;
   outline: none;
   transition: all 0.2s;
   &:hover {
     background: #2fe2f3;
   }
+`
+
+export const Submit = styled.input`
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: "Montserrat Alternates";
 `

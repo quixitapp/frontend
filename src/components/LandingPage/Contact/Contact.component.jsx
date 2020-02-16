@@ -8,7 +8,8 @@ import {
   Row,
   Form,
   Field,
-  Submit
+  ButtonWrapper,
+  Submit,
 } from "./Contact.styles"
 
 const Contact = () => {
@@ -16,13 +17,13 @@ const Contact = () => {
     firstName: "",
     lastName: "",
     email: "",
-    message: ""
+    message: "",
   })
 
   const onChange = e => {
     setFields({
       fields,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -57,7 +58,9 @@ const Contact = () => {
             />
           </Row>
           <Row>
-            <Submit type="submit" value="Subscribe" />
+            <ButtonWrapper>
+              <Submit type="submit" value="Subscribe" />
+            </ButtonWrapper>
           </Row>
         </Form>
       </Container>
