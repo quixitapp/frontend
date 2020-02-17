@@ -1,8 +1,32 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
-import { NavLink } from "react-router-dom"
 import { sendToken, registerUser } from "../../../../redux/actions"
 import { auth, provider } from "../../../../configs/firebase"
+
+import {
+  RegisterContainer,
+  Brand,
+  RegisterTitle,
+  FormContainer,
+  Split,
+  Inputs,
+  FieldContainer,
+  CheckContainer,
+  CheckLabel,
+  CheckBoxOn,
+  CheckBoxOff,
+  Field,
+  Select,
+  Options,
+  CustomButton,
+  Register,
+  LoginBtn,
+  Instruction,
+  FormLabel,
+  FormButton,
+} from "./Signup.styles"
+
+import logo from "../../../../assets/logo.svg"
 
 const Signup = props => {
   const [firstName, setFirstName] = useState("")
@@ -64,81 +88,140 @@ const Signup = props => {
       console.log(user)
     })
   }
+
+  const renderCheckBox = () => {
+    if (!isContractor) {
+      return (
+        <CheckBoxOff
+          onChange={e => setIsContractor(!isContractor)}
+          type="checkbox"
+          name="isContractor"
+          checked={isContractor}
+        />
+      )
+    } else {
+      return (
+        <CheckBoxOn
+          onChange={e => setIsContractor(!isContractor)}
+          type="checkbox"
+          name="isContractor"
+          checked={isContractor}
+        />
+      )
+    }
+  }
   return (
-    <>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          onChange={e => setFirstName(e.target.value)}
-          type="text"
-          name="firstName"
-          placeholder="FirstName"
-          required
-        />
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          onChange={e => setLastName(e.target.value)}
-          type="text"
-          name="lastName"
-          placeholder="LastName"
-          required
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          onChange={e => setEmail(e.target.value)}
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          onChange={e => setPassword(e.target.value)}
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <label htmlFor="isContractor">
-          <input
-            onChange={e => setIsContractor(!isContractor)}
-            type="checkbox"
-            name="isContractor"
-            checked={isContractor}
-          />
-        </label>
-        {isContractor && (
-          <>
-            <label htmlFor="categories">
-              Categories
-              <select
-                onChange={e => setCategory(e.target.value)}
-                name="categories"
-                required>
-                <option value="Select a category">Select a category</option>
-                <option value="Plumbing">Carpenter</option>
-                <option value="Plumbing">Plumber</option>
-                <option value="Plumbing">Painter</option>
-                <option value="Plumbing">Electrician</option>
-                <option value="Plumbing">Cleaning</option>
-              </select>
-            </label>
-            <label htmlFor="zip code">Zip Code</label>
-            <input
-              onChange={e => setZipCode(e.target.value)}
-              type="number"
-              placeholder="ZipCode"
-              required
-            />
-          </>
-        )}
-        <input type="submit" value="Sign up" />
-        <NavLink to="/login">Already have an account?</NavLink>
-        <button onClick={() => googleSingIn()} type="button">
-          Continue with Google
-        </button>
-      </form>
-    </>
+    <RegisterContainer>
+      <Brand>
+        <img src={logo} alt="logo" />
+        <RegisterTitle>Welcome to Quixit</RegisterTitle>
+      </Brand>
+      <FormContainer onSubmit={onSubmit}>
+        <Inputs>
+          <Split>
+            <FieldContainer>
+              <FormLabel htmlFor="firstName">First Name*</FormLabel>
+              <Field
+                onChange={e => setFirstName(e.target.value)}
+                type="text"
+                name="firstName"
+                placeholder="Enter first name..."
+                required
+              />
+            </FieldContainer>
+            <FieldContainer>
+              <FormLabel htmlFor="lastName">Last Name*</FormLabel>
+              <Field
+                onChange={e => setLastName(e.target.value)}
+                type="text"
+                name="lastName"
+                placeholder="Enter last name..."
+                required
+              />
+            </FieldContainer>
+          </Split>
+          <Split>
+            <FieldContainer>
+              <FormLabel htmlFor="email">Email*</FormLabel>
+              <Field
+                onChange={e => setEmail(e.target.value)}
+                type="email"
+                name="email"
+                placeholder="Enter email..."
+                required
+              />
+            </FieldContainer>
+            <FieldContainer>
+              <FormLabel htmlFor="password">Password*</FormLabel>
+              <Field
+                onChange={e => setPassword(e.target.value)}
+                type="password"
+                name="password"
+                placeholder="Enter password..."
+                required
+              />
+            </FieldContainer>
+          </Split>
+          <CheckContainer>
+            {renderCheckBox()}
+            <CheckLabel htmlFor="isContractor">I am a contractor</CheckLabel>
+          </CheckContainer>
+          {isContractor && (
+            <Split>
+              <FieldContainer>
+                <FormLabel htmlFor="categories">Categories*</FormLabel>
+                <Select
+                  onChange={e => setCategory(e.target.value)}
+                  name="categories"
+                  required>
+                  <Options value="Select a category">Select a category</Options>
+                  <Options value="Plumbing">Carpenter</Options>
+                  <Options value="Plumbing">Plumber</Options>
+                  <Options value="Plumbing">Painter</Options>
+                  <Options value="Plumbing">Electrician</Options>
+                  <Options value="Plumbing">Cleaning</Options>
+                </Select>
+              </FieldContainer>
+              <FieldContainer>
+                <FormLabel htmlFor="zip code">Zip Code*</FormLabel>
+                <Field
+                  onChange={e => setZipCode(e.target.value)}
+                  type="number"
+                  placeholder="Enter zip code..."
+                  required
+                />
+              </FieldContainer>
+            </Split>
+          )}
+          <Register>
+            <FieldContainer>
+              <CustomButton>
+                <FormButton type="submit" value="Sign up" />
+              </CustomButton>
+              <LoginBtn to="/home/login">Already have an account?</LoginBtn>
+            </FieldContainer>
+            <Instruction>Or connect with:</Instruction>
+
+            <CustomButton isGoogleSignIn>
+              <FormButton
+                google
+                onClick={() => googleSingIn()}
+                type="submit"
+                value="Continue with Google"
+              />
+            </CustomButton>
+
+            <CustomButton isFacebookSignIn>
+              <FormButton
+                facebook
+                type="submit"
+                value="Continue with Facebook"
+              />
+            </CustomButton>
+          </Register>
+        </Inputs>
+      </FormContainer>
+    </RegisterContainer>
   )
 }
 

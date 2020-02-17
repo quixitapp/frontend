@@ -14,6 +14,7 @@ import "./landingPage.styles.scss"
 import "react-router-modal/css/react-router-modal.css"
 
 const LandingPage = props => {
+  console.log(props)
   return (
     <>
       <NavBar
@@ -22,14 +23,16 @@ const LandingPage = props => {
         login={props.login}
         logout={props.logout}
       />
-      <Header login={props.login} logout={props.logout} />
+      <Header {...props} />
       <StoryBoard />
       <Team />
       <Contact />
       <Footer />
+
       <ModalRoute
-        path="/login"
-        parentPath="/"
+        exact
+        path={`${props.match.url}/login`}
+        parentPath={props.match.url}
         component={Login}
         className="quixit-modal"
         inClassName="quixit-modal-in"
@@ -40,8 +43,9 @@ const LandingPage = props => {
         outDelay={300}
       />
       <ModalRoute
-        path="/signup"
-        parentPath="/"
+        exact
+        path={`${props.match.url}/signup`}
+        parentPath={props.match.url}
         component={Signup}
         className="quixit-modal"
         inClassName="quixit-modal-in"
@@ -49,7 +53,7 @@ const LandingPage = props => {
         backdropClassName="quixit-backdrop"
         backdropInClassName="quixit-backdrop-in"
         backdropOutClassName="quixit-backdrop-out"
-        outDelay={800}
+        outDelay={300}
       />
       <ModalContainer />
     </>

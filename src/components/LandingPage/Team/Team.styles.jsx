@@ -49,7 +49,7 @@ export const TeamTitle = styled.h2`
 export const TeamCard = styled.div`
   width: 300px;
   height: 326px;
-  background: rgb(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@ export const MemberName = styled.h5`
   padding: 0;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #014045;
+  color: #322b28;
   margin-bottom: 0.8rem;
 `
 export const Role = styled.h6`
@@ -97,6 +97,11 @@ export const Touch = styled(NavLink)`
   height: 18px;
   width: 18px;
   color: #322b28;
+  transition: all 0.2s ease-in;
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
 `
 export const LinkImg = styled.img`
   background: ${props => props.src};

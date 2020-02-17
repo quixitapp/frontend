@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
+import validator from "validator"
 
 // Actions
 import { auth } from "../../../../configs/firebase"
@@ -20,6 +21,7 @@ import {
   Register,
   Instruction,
 } from "./Login.styles"
+
 import logo from "../../../../assets/logo.svg"
 
 const Login = props => {
@@ -28,20 +30,44 @@ const Login = props => {
 
   const onSubmit = e => {
     e.preventDefault()
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .catch(({ code, message }) => {
-        console.log(code)
-        console.log(message)
-      })
 
-    auth.currentUser
-      .getIdToken(true)
-      .then(idToken => {
-        localStorage.setItem("idToken", idToken)
-        props.logUser(idToken)
-      })
-      .catch(({ message }) => console.log(message))
+    // Sanitze inputs---------------
+
+    if (
+      validator.isEmail(email) &&
+      validator.isByteLength(
+        email,
+        { min: 6, max: 64 } &&
+          validator.isByteLength(password, { min: 6, max: 128 })
+      )
+    ) {
+      validator.normalizeEmail(email)
+      validator.ltrim(email)
+      validator.ltrim(password)
+      validator.rtrim(email)
+      validator.rtrim(password)
+      validator.unescape(password)
+
+      // Sanitze inputs---------------
+
+      auth
+        .signInWithEmailAndPassword(email, password)
+        .catch(({ code, message }) => {
+          console.log(code)
+          console.log(message)
+        })
+
+      auth.currentUser
+        .getIdToken(true)
+        .then(idToken => {
+          localStorage.setItem("idToken", idToken)
+          props.logUser(idToken)
+          props.history.push("/onboarding")
+        })
+        .catch(({ message }) => console.log(message))
+    } else {
+      console.log("Invalid email or Password!")
+    }
   }
   return (
     <LoginContainer>
@@ -55,7 +81,7 @@ const Login = props => {
           <Field
             onChange={e => setEmail(e.target.value)}
             type="email"
-            placeholder="Email"
+            placeholder="Enter email..."
             name="email"
             required
           />
@@ -63,7 +89,7 @@ const Login = props => {
           <Field
             onChange={e => setPassword(e.target.value)}
             type="password"
-            placeholder="Password"
+            placeholder="Enrer password..."
             name="password"
             required
           />
@@ -72,7 +98,7 @@ const Login = props => {
           <CustomButton>
             <FormButton type="submit" value="Log in" />
           </CustomButton>
-          <Register to="/signup">Need to create an account?</Register>
+          <Register to="/home/signup">Need to create an account?</Register>
         </SignIn>
         <Instruction>Or connect with:</Instruction>
         <CustomButton isGoogleSignIn>

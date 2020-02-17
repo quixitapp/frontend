@@ -19,7 +19,9 @@ const Header = props => (
         <ContainerFlex>
           <HeaderTitleContainer>
             <HeaderTitle>Home services, at a click of a button.</HeaderTitle>
-            <GetStarted to="/signup">Get Started</GetStarted>
+            <GetStarted to={`${props.match.url}/signup`}>
+              Get Started
+            </GetStarted>
           </HeaderTitleContainer>
           <HeaderHero>
             <HeaderImg />
