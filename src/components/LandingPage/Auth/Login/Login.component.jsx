@@ -66,6 +66,7 @@ const Login = props => {
         })
         .catch(({ message }) => console.log(message))
     } else {
+      props.history.push("/home")
       console.log("Invalid email or Password!")
     }
   }

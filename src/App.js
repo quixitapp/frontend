@@ -9,7 +9,7 @@ function App(props) {
     <>
       <Switch>
         <Route path="/home" render={props => <LandingPage {...props} />} />
-        <Route exact patch="/onboarding" component={OnBoardingPage} />
+        <Route exact path="/onboarding" component={OnBoardingPage} />
       </Switch>
     </>
   )

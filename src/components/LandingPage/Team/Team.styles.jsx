@@ -97,9 +97,10 @@ export const Touch = styled(NavLink)`
   height: 18px;
   width: 18px;
   color: #322b28;
+  opacity: 0.7;
   transition: all 0.2s ease-in;
   &:hover {
-    opacity: 0.9;
+    opacity: 1;
     transform: scale(1.2);
   }
 `
