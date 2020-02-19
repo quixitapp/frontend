@@ -8,8 +8,8 @@ function App(props) {
   return (
     <>
       <Switch>
-        <Route path="/home" render={props => <LandingPage {...props} />} />
-        <Route exact path="/onboarding" component={OnBoardingPage} />
+        <Route path="/landing" render={props => <LandingPage {...props} />} />
+        <Route path="/onboarding" component={OnBoardingPage} />
       </Switch>
     </>
   )

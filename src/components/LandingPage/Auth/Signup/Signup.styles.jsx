@@ -2,13 +2,12 @@ import styled, { css } from "styled-components"
 import { NavLink } from "react-router-dom"
 
 export const RegisterContainer = styled.div`
-  width: 52rem;
-  padding: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: #fff;
+  justify-content: flex-start;
   border-radius: 8rem;
+  height: 100%;
+  width: 100%;
 `
 
 export const Brand = styled.div`
@@ -34,7 +33,7 @@ export const FormContainer = styled.form`
   height: 44rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flext-start;
 `
 
 export const FormLabel = styled.label`
@@ -60,6 +59,18 @@ export const Split = styled.div`
   display: grid;
   grid-template-columns: 4fr 4fr;
   grid-gap: 2rem;
+  align-items: center;
+`
+
+export const SplitCheck = styled.div`
+  width: 100%;
+  height: 8rem;
+  grid-gap: 2rem;
+  transition: all 1s;
+  align-items: center;
+  grid-template-columns: 4fr 4fr;
+  opacity: ${props => (props.show === false ? "0" : "1")};
+  display: ${props => (props.show === false ? "none" : "grid")};
 `
 
 export const FieldContainer = styled.div`
@@ -98,6 +109,7 @@ export const CheckBoxOff = styled.input`
   padding: 0;
   margin: 0;
   outline: none;
+  cursor: pointer;
 `
 
 export const CheckBoxOn = styled.input`
@@ -113,6 +125,7 @@ export const CheckBoxOn = styled.input`
   padding: 0.2rem;
   text-align: center;
   font-size: 1.3rem;
+  cursor: pointer;
 
   &::after {
     content: "\u2713";
@@ -154,10 +167,9 @@ export const Select = styled.select`
   padding-left: 1.5rem;
   border: 1px solid #d9d9d9;
   font-family: "Montserrat Alternates";
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   outline: none;
   cursor: pointer;
-  overflow: hidden;
   color: #232829;
 `
 
@@ -178,6 +190,7 @@ export const Register = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 `
 
 export const Instruction = styled.div`

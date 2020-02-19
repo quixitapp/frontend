@@ -9,6 +9,7 @@ import {
   RegisterTitle,
   FormContainer,
   Split,
+  SplitCheck,
   Inputs,
   FieldContainer,
   CheckContainer,
@@ -93,7 +94,10 @@ const Signup = props => {
     if (!isContractor) {
       return (
         <CheckBoxOff
-          onChange={e => setIsContractor(!isContractor)}
+          onChange={e => {
+            setIsContractor(!isContractor)
+            props.contractor(true)
+          }}
           type="checkbox"
           name="isContractor"
           checked={isContractor}
@@ -102,7 +106,10 @@ const Signup = props => {
     } else {
       return (
         <CheckBoxOn
-          onChange={e => setIsContractor(!isContractor)}
+          onChange={e => {
+            setIsContractor(!isContractor)
+            props.contractor(false)
+          }}
           type="checkbox"
           name="isContractor"
           checked={isContractor}
@@ -166,39 +173,39 @@ const Signup = props => {
             {renderCheckBox()}
             <CheckLabel htmlFor="isContractor">I am a contractor</CheckLabel>
           </CheckContainer>
-          {isContractor && (
-            <Split>
-              <FieldContainer>
-                <FormLabel htmlFor="categories">Categories*</FormLabel>
-                <Select
-                  onChange={e => setCategory(e.target.value)}
-                  name="categories"
-                  required>
-                  <Options value="Select a category">Select a category</Options>
-                  <Options value="Plumbing">Carpenter</Options>
-                  <Options value="Plumbing">Plumber</Options>
-                  <Options value="Plumbing">Painter</Options>
-                  <Options value="Plumbing">Electrician</Options>
-                  <Options value="Plumbing">Cleaning</Options>
-                </Select>
-              </FieldContainer>
-              <FieldContainer>
-                <FormLabel htmlFor="zip code">Zip Code*</FormLabel>
-                <Field
-                  onChange={e => setZipCode(e.target.value)}
-                  type="number"
-                  placeholder="Enter zip code..."
-                  required
-                />
-              </FieldContainer>
-            </Split>
-          )}
+
+          <SplitCheck show={isContractor === true ? true : false}>
+            <FieldContainer>
+              <FormLabel htmlFor="categories">Categories*</FormLabel>
+              <Select
+                onChange={e => setCategory(e.target.value)}
+                name="categories"
+                required>
+                <Options value="Select a category">Select a category</Options>
+                <Options value="Plumbing">Carpenter</Options>
+                <Options value="Plumbing">Cleaning</Options>
+                <Options value="Plumbing">Electrician</Options>
+                <Options value="Plumbing">Plumber</Options>
+                <Options value="Plumbing">Painter</Options>
+              </Select>
+            </FieldContainer>
+            <FieldContainer>
+              <FormLabel htmlFor="zip code">Zip Code*</FormLabel>
+              <Field
+                onChange={e => setZipCode(e.target.value)}
+                type="number"
+                placeholder="Enter zip code..."
+                required
+              />
+            </FieldContainer>
+          </SplitCheck>
+
           <Register>
             <FieldContainer>
               <CustomButton>
                 <FormButton type="submit" value="Sign up" />
               </CustomButton>
-              <LoginBtn to="/home/login">Already have an account?</LoginBtn>
+              <LoginBtn to="/landing/login">Already have an account?</LoginBtn>
             </FieldContainer>
             <Instruction>Or connect with:</Instruction>
 

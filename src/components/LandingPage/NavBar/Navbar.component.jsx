@@ -1,4 +1,8 @@
 import React, { useEffect, useRef } from "react"
+import { Route, Switch } from "react-router-dom"
+
+import Modal from "../../CustomModal/Modal/Modal.component"
+import Login from "../Auth/Login/Login.component"
 
 import logo from "../../../assets/logo.svg"
 
@@ -29,24 +33,40 @@ const NavBar = props => {
   }, [])
 
   return (
-    <StickyNav ref={navRef}>
-      <NavContainer>
-        <Navigation>
-          <Brand>
-            <img src={logo} alt="logo" />
-            <LogoMark>Quixit</LogoMark>
-          </Brand>
-          <Links>
-            <PageLink to="#">How it works</PageLink>
-            <PageLink to="#">Meet the team</PageLink>
-            <PageLink to="#">Contact</PageLink>
-            <PageLink to="#">About us</PageLink>
-            <PageLink to="#">Become a Quixer</PageLink>
-            <PageLink to={`${props.match.url}/login`}>Log in</PageLink>
-          </Links>
-        </Navigation>
-      </NavContainer>
-    </StickyNav>
+    <>
+      <StickyNav ref={navRef}>
+        <NavContainer>
+          <Navigation>
+            <Brand>
+              <img src={logo} alt="logo" />
+              <LogoMark>Quixit</LogoMark>
+            </Brand>
+            <Links>
+              <PageLink to="#">How it works</PageLink>
+              <PageLink to="#">Meet the team</PageLink>
+              <PageLink to="#">Contact</PageLink>
+              <PageLink to="#">About us</PageLink>
+              <PageLink to="#">Become a Quixer</PageLink>
+              <PageLink onClick={props.openModal} to="/landing/login">
+                Log in
+              </PageLink>
+            </Links>
+          </Navigation>
+        </NavContainer>
+      </StickyNav>
+      <Switch>
+        <Route
+          path="/landing/login"
+          render={props => {
+            return (
+              <Modal closing={props.closing} isOpen={props.isOpen}>
+                <Login />
+              </Modal>
+            )
+          }}
+        />
+      </Switch>
+    </>
   )
 }
 

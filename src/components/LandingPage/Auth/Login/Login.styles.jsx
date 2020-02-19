@@ -2,14 +2,11 @@ import styled, { css } from "styled-components"
 import { NavLink } from "react-router-dom"
 
 export const LoginContainer = styled.div`
-  width: 52rem;
-  height: 56.5rem;
-  padding: 3rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: #fff;
-  border-radius: 8rem;
+  justify-content: flex-start;
 `
 
 export const Brand = styled.div`
@@ -18,6 +15,7 @@ export const Brand = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin: 0;
+  padding: 0;
   margin-bottom: 3rem;
 `
 
@@ -32,10 +30,9 @@ export const LoginTitle = styled.h2`
 
 export const FormContainer = styled.form`
   width: 100%;
-  height: 44rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 export const FormLabel = styled.label`
@@ -51,6 +48,15 @@ export const Inputs = styled.div`
   width: 100%;
   height: 13rem;
   margin-bottom: 3rem;
+`
+
+export const FieldContainer = styled.div`
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
 `
 
 export const Field = styled.input`
@@ -78,12 +84,14 @@ export const SignIn = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 `
 
 export const Instruction = styled.div`
   font-size: 1.3rem;
   color: rgba(35, 40, 41, 0.8);
   text-align: center;
+  margin-bottom: 3rem;
 `
 
 // Buttons
@@ -113,7 +121,7 @@ const getButtonStyle = props => {
 
 const isDefaultStyles = css`
   width: 100%;
-  height: 5.2rem;
+  height: 5.2rem !important;
   border-radius: 1rem;
   border: none;
   font-family: "Montserrat Alternates";
@@ -122,6 +130,7 @@ const isDefaultStyles = css`
   background: #bef3f8;
   margin: 0;
   margin-bottom: 0.6rem;
+  margin-top: 3rem;
   transition: all 0.2s;
   &:hover {
     background: #2fe2f3;
@@ -156,6 +165,7 @@ const isFacebookSignInStyles = css`
   color: #fff;
   margin: 0;
   margin-bottom: 0.6rem;
+  margin-top: 1.5rem;
   transition: all 0.2s;
   &:hover {
     opacity: 0.9;
@@ -175,4 +185,5 @@ export const Register = styled(NavLink)`
   padding: 0;
   margin: 0;
   text-decoration: none;
+  margin-bottom: 3rem;
 `
