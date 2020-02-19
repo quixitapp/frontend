@@ -8,7 +8,6 @@ import Contact from "../../components/LandingPage/Contact/Contact.component"
 import Footer from "../../components/LandingPage/Footer/Footer.component"
 
 import "./landingPage.styles.scss"
-import "react-router-modal/css/react-router-modal.css"
 
 const LandingPage = props => {
   const [isOpen, setIsOpen] = useState(false)
