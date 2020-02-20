@@ -1,23 +1,23 @@
 import styled from "styled-components"
 
 export const FooterContainer = styled.footer`
-  width: 100%;
-  height: auto;
-  background-color: #f0f0f3;
-  color: #232829;
   margin: 0;
   padding: 0;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  width: 100%;
+  height: auto;
+  color: #232829;
   font-size: 1.4rem;
+  padding-top: 5rem;
   text-align: center;
+  padding-bottom: 5rem;
+  background-color: #f0f0f3;
 `
 
 export const Container = styled.div`
-  width: 1100px;
-  max-width: 1100px;
-  margin: 0 auto;
   padding: 0;
+  width: 1100px;
+  margin: 0 auto;
+  max-width: 1100px;
 
   @media (max-width: 850px) {
     width: 768px;

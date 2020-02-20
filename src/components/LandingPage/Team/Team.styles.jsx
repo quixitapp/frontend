@@ -4,20 +4,20 @@ import { NavLink } from "react-router-dom"
 import contact_border from "../../../assets/contact_border.svg"
 
 export const TeamContainer = styled.div`
-  width: 100%;
-  height: auto;
-  background-color: #fff2dd;
   margin: 0;
   padding: 0;
-  padding-bottom: 13rem;
+  width: 100%;
+  height: auto;
   position: relative;
+  padding-bottom: 13rem;
+  background-color: #fff2dd;
 `
 
 export const Container = styled.div`
-  width: 1100px;
-  max-width: 1100px;
-  margin: 0 auto;
   padding: 0;
+  width: 1100px;
+  margin: 0 auto;
+  max-width: 1100px;
 
   @media (max-width: 850px) {
     width: 768px;
@@ -33,15 +33,15 @@ export const Container = styled.div`
 export const TeamGrid = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
 `
 
 export const TeamTitle = styled.h2`
-  font-size: 3.2rem;
-  font-weight: 600;
-  color: #322b28;
   margin: 0;
+  color: #322b28;
+  font-weight: 600;
+  font-size: 3.2rem;
   margin-bottom: 6rem;
   padding-top: ${props => (props.top ? `${props.top}px` : `0px`)};
 `
@@ -49,55 +49,55 @@ export const TeamTitle = styled.h2`
 export const TeamCard = styled.div`
   width: 300px;
   height: 326px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
   display: flex;
+  padding: 4rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  border-radius: 10px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 4rem;
-  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.8);
 `
 
 export const MemberImg = styled.img`
+  border: 0;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: ${props => props.src} center center/cover;
   margin-bottom: 1.4rem;
-  border: 0;
+  background: ${props => props.src} center center/cover;
 `
 
 export const MemberName = styled.h5`
   margin: 0;
   padding: 0;
-  font-size: 1.8rem;
-  font-weight: 600;
   color: #322b28;
+  font-weight: 600;
+  font-size: 1.8rem;
   margin-bottom: 0.8rem;
 `
 export const Role = styled.h6`
   margin: 0;
   padding: 0;
-  font-size: 1.6rem;
-  font-family: "Montserrat";
-  font-weight: 400;
   color: #a8abab;
+  font-weight: 400;
+  font-size: 1.6rem;
   margin-bottom: 6rem;
+  font-family: "Montserrat";
 `
 
 export const Links = styled.div`
-  display: flex;
   width: 54px;
   heigth: 18px;
+  display: flex;
   justify-content: space-between;
 `
 
 export const Touch = styled(NavLink)`
-  height: 18px;
   width: 18px;
-  color: #322b28;
   opacity: 0.7;
+  height: 18px;
+  color: #322b28;
   transition: all 0.2s ease-in;
   &:hover {
     opacity: 1;
@@ -109,13 +109,13 @@ export const LinkImg = styled.img`
 `
 
 export const TeamBorder = styled.span`
-  background: url(${contact_border}) no-repeat;
-  background-size: cover;
-  padding: 0;
   margin: 0;
-  position: absolute;
-  border: none;
+  padding: 0;
   width: 100%;
-  height: 160px;
   bottom: 0px;
+  border: none;
+  height: 160px;
+  position: absolute;
+  background-size: cover;
+  background: url(${contact_border}) no-repeat;
 `
