@@ -18,8 +18,8 @@ export const HeaderHero = styled.div`
   width: 50%;
   height: 100%;
   position: absolute;
-  background-size: cover;
   background: url(${hero}) center left no-repeat;
+  background-size: cover;
 
   @media (max-width: 850px) {
     width: 49%;
@@ -114,6 +114,6 @@ export const HeaderBorder = styled.span`
   border: none;
   height: 160px;
   position: absolute;
-  background-size: cover;
   background: url(${header_border}) no-repeat;
+  background-size: cover;
 `
