@@ -1,5 +1,4 @@
-import React from "react"
-import { ModalContainer, ModalRoute } from "react-router-modal"
+import React, { useState } from "react"
 
 import NavBar from "../../components/LandingPage/NavBar/Navbar.component"
 import Header from "../../components/LandingPage/Header/Header.component"
@@ -7,55 +6,49 @@ import StoryBoard from "../../components/LandingPage/StoryBoard/StoryBoard.compo
 import Team from "../../components/LandingPage/Team/Team.component"
 import Contact from "../../components/LandingPage/Contact/Contact.component"
 import Footer from "../../components/LandingPage/Footer/Footer.component"
-import Login from "../../components/LandingPage/Auth/Login/Login.component"
-import Signup from "../../components/LandingPage/Auth/Signup/Signup.component"
 
 import "./landingPage.styles.scss"
 import "react-router-modal/css/react-router-modal.css"
 
 const LandingPage = props => {
-  console.log(props)
+  const [isOpen, setIsOpen] = useState(false)
+  const [closing, setClosing] = useState(false)
+  const openModal = () => {
+    setIsOpen(true)
+    setClosing(false)
+  }
+
+  const closeModal = () => {
+    setClosing(true)
+
+    setTimeout(() => {
+      setIsOpen(false)
+    }, 350)
+  }
+
   return (
     <>
       <NavBar
         {...props}
         isAuthenticated={props.isAuthenticated}
+        closing={closing}
+        isOpen={isOpen}
+        openModal={openModal}
+        closeModal={closeModal}
         login={props.login}
         logout={props.logout}
       />
-      <Header {...props} />
+      <Header
+        closing={closing}
+        isOpen={isOpen}
+        openModal={openModal}
+        closeModal={closeModal}
+        {...props}
+      />
       <StoryBoard />
       <Team />
       <Contact />
       <Footer />
-
-      <ModalRoute
-        exact
-        path={`${props.match.url}/login`}
-        parentPath={props.match.url}
-        component={Login}
-        className="quixit-modal"
-        inClassName="quixit-modal-in"
-        outClassName="quixit-modal-out"
-        backdropClassName="quixit-backdrop"
-        backdropInClassName="quixit-backdrop-in"
-        backdropOutClassName="quixit-backdrop-out"
-        outDelay={300}
-      />
-      <ModalRoute
-        exact
-        path={`${props.match.url}/signup`}
-        parentPath={props.match.url}
-        component={Signup}
-        className="quixit-modal"
-        inClassName="quixit-modal-in"
-        outClassName="quixit-modal-out"
-        backdropClassName="quixit-backdrop"
-        backdropInClassName="quixit-backdrop-in"
-        backdropOutClassName="quixit-backdrop-out"
-        outDelay={300}
-      />
-      <ModalContainer />
     </>
   )
 }

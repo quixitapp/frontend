@@ -12,6 +12,7 @@ import {
   Brand,
   LoginTitle,
   FormContainer,
+  FieldContainer,
   FormLabel,
   Inputs,
   Field,
@@ -90,24 +91,32 @@ const Login = props => {
           <Field
             onChange={e => setPassword(e.target.value)}
             type="password"
-            placeholder="Enrer password..."
+            placeholder="Enter password..."
             name="password"
             required
           />
+          <SignIn>
+            <FieldContainer>
+              <CustomButton>
+                <FormButton type="submit" value="Log in" />
+              </CustomButton>
+              <Register to="/landing/signup">
+                Need to create an account?
+              </Register>
+            </FieldContainer>
+            <Instruction>Or connect with:</Instruction>
+            <CustomButton isGoogleSignIn>
+              <FormButton google type="submit" value="Continue with Google" />
+            </CustomButton>
+            <CustomButton isFacebookSignIn>
+              <FormButton
+                facebook
+                type="submit"
+                value="Continue with Facebook"
+              />
+            </CustomButton>
+          </SignIn>
         </Inputs>
-        <SignIn>
-          <CustomButton>
-            <FormButton type="submit" value="Log in" />
-          </CustomButton>
-          <Register to="/home/signup">Need to create an account?</Register>
-        </SignIn>
-        <Instruction>Or connect with:</Instruction>
-        <CustomButton isGoogleSignIn>
-          <FormButton google type="submit" value="Continue with Google" />
-        </CustomButton>
-        <CustomButton isFacebookSignIn>
-          <FormButton facebook type="submit" value="Continue with Facebook" />
-        </CustomButton>
       </FormContainer>
     </LoginContainer>
   )
