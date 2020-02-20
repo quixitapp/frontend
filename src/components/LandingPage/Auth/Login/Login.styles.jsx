@@ -133,6 +133,7 @@ const isDefaultStyles = css`
   margin-bottom: 0.6rem;
   height: 5.2rem !important;
   font-family: "Montserrat Alternates";
+
   &:hover {
     background: #2fe2f3;
   }
@@ -149,6 +150,7 @@ const isGoogleSignInStyles = css`
   margin-bottom: 0.6rem;
   border: 1px solid #cdcdcd;
   font-family: "Montserrat Alternates";
+
   &:hover {
     opacity: 0.7;
   }
@@ -168,6 +170,7 @@ const isFacebookSignInStyles = css`
   transition: all 0.2s;
   margin-bottom: 0.6rem;
   font-family: "Montserrat Alternates";
+
   &:hover {
     opacity: 0.9;
   }
