@@ -12,12 +12,12 @@ import "./landingPage.styles.scss"
 const LandingPage = props => {
   const [isOpen, setIsOpen] = useState(false)
   const [closing, setClosing] = useState(false)
-  const openModal = () => {
+  const open = () => {
     setIsOpen(true)
     setClosing(false)
   }
 
-  const closeModal = () => {
+  const close = () => {
     setClosing(true)
 
     setTimeout(() => {
@@ -32,16 +32,16 @@ const LandingPage = props => {
         isAuthenticated={props.isAuthenticated}
         closing={closing}
         isOpen={isOpen}
-        openModal={openModal}
-        closeModal={closeModal}
+        openModal={open}
+        closeModal={close}
         login={props.login}
         logout={props.logout}
       />
       <Header
         closing={closing}
         isOpen={isOpen}
-        openModal={openModal}
-        closeModal={closeModal}
+        openModal={open}
+        closeModal={close}
         {...props}
       />
       <StoryBoard />

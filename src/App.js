@@ -5,6 +5,7 @@ import LandingPage from "./pages/landingPage/landingPage.component"
 import OnBoardingPage from "./pages/onBoardingPage/onBoarding.component"
 
 function App(props) {
+  console.log(props.isOpen)
   return (
     <>
       <Switch>

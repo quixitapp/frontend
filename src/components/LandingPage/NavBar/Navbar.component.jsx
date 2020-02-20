@@ -20,10 +20,16 @@ const NavBar = props => {
   const navRef = useRef(null)
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 50) {
+      if (window.pageYOffset > 30) {
         navRef.current.classList.add("scrolled")
+        navRef.current.classList.add("animated")
+        navRef.current.classList.add("fadeIn")
+        navRef.current.classList.add("fast")
       } else {
         navRef.current.classList.remove("scrolled")
+        navRef.current.classList.remove("animated")
+        navRef.current.classList.remove("fadeIn")
+        navRef.current.classList.remove("fast")
       }
     }
     document.addEventListener("scroll", handleScroll)
@@ -31,7 +37,6 @@ const NavBar = props => {
       document.removeEventListener("scroll", handleScroll)
     }
   }, [])
-
   return (
     <>
       <StickyNav ref={navRef}>
