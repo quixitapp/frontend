@@ -8,7 +8,10 @@ export const StickyNav = styled.nav`
   height: auto;
   position: sticky;
   padding-bottom: 4rem;
-  spadding-bottom: 8rem;
+  transition: opacity 0.3s;
+  background: ${props => (props.show === true ? "#fff" : "transparant")};
+  box-shadow: ${props =>
+    props.show === true ? "rgba(15, 15, 15, 0.06) 0 10px 10px 0" : "none"};
 `
 
 export const Navigation = styled.div`

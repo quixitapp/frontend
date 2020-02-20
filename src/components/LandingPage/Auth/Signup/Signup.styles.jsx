@@ -250,9 +250,9 @@ const isGoogleSignInStyles = css`
   height: 5.2rem;
   font-size: 1.6rem;
   border-radius: 1rem;
-  margin-bottom: 2rem;
   transition: all 0.2s;
   margin-bottom: 0.6rem;
+  margin-bottom: 2rem;
   border: 1px solid #cdcdcd;
   font-family: "Montserrat Alternates";
   &:hover {

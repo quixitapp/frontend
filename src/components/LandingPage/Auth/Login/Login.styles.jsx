@@ -90,6 +90,7 @@ export const SignIn = styled.div`
 export const Instruction = styled.div`
   font-size: 1.3rem;
   text-align: center;
+  margin-top: 1.8rem;
   margin-bottom: 3rem;
   color: rgba(35, 40, 41, 0.8);
 `
@@ -99,13 +100,13 @@ export const FormButton = styled.input`
   width: 100%;
   height: auto;
   border: none;
-  color: ${props => (props.facebook ? "#fff" : "$000")};
-  background: none;
-  font-family: "Montserrat Alternates";
-  font-size: 1.6rem;
-  font-weight: ${props => (props.facebook || props.google ? "500" : "600")};
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
+  background: none;
+  font-size: 1.6rem;
+  font-family: "Montserrat Alternates";
+  color: ${props => (props.facebook ? "#fff" : "$000")};
+  font-weight: ${props => (props.facebook || props.google ? "500" : "600")};
 `
 
 const getButtonStyle = props => {
