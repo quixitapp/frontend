@@ -10,21 +10,21 @@ export const LoginContainer = styled.div`
 `
 
 export const Brand = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  align-items: center;
   margin: 0;
   padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
   margin-bottom: 3rem;
+  justify-content: flex-start;
 `
 
 export const LoginTitle = styled.h2`
   margin: 0;
-  margin-left: 1.5rem;
   padding: 0;
-  font-size: 1.8rem;
   font-weight: 500;
+  font-size: 1.8rem;
+  margin-left: 1.5rem;
   color: rgba(35, 40, 41, 0.8);
 `
 
@@ -36,10 +36,10 @@ export const FormContainer = styled.form`
 `
 
 export const FormLabel = styled.label`
+  margin: 0;
+  padding: 0;
   font-size: 1.3rem;
   color: rgba(35, 40, 41, 0.8);
-  padding: 0;
-  margin: 0;
 `
 
 export const Inputs = styled.div`
@@ -54,30 +54,30 @@ export const FieldContainer = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;
-
   display: flex;
   flex-direction: column;
 `
 
 export const Field = styled.input`
-  width: 100%;
-  height: 3.4rem;
-  border-radius: .6rem;
-  background: #F5F5F7;
-  border: none;
-  padding: 0;
-  padding-left: 1.5rem;
   margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 3.4rem;
   margin: 1.2rem 0;
   font-size: 0.8rem;
-  outline: none;
-  font-family: "Montserrat Alternates";
   font-size: 1.5rem;
+  background: #f5f5f7;
+  border-radius: 0.6rem;
+  padding-left: 1.5rem;
+  font-family: "Montserrat Alternates";
 
-    &::placeholder {
-    font-family: "Montserrat Alternates";
-    color: #A5A7A8;
+  &::placeholder {
+    color: #a5a7a8;
     font-size: 1.5rem;
+    font-family: "Montserrat Alternates";
+  }
 `
 
 export const SignIn = styled.div`
@@ -89,9 +89,9 @@ export const SignIn = styled.div`
 
 export const Instruction = styled.div`
   font-size: 1.3rem;
-  color: rgba(35, 40, 41, 0.8);
   text-align: center;
   margin-bottom: 3rem;
+  color: rgba(35, 40, 41, 0.8);
 `
 
 // Buttons
@@ -120,70 +120,70 @@ const getButtonStyle = props => {
 }
 
 const isDefaultStyles = css`
-  width: 100%;
-  height: 5.2rem !important;
-  border-radius: 1rem;
-  border: none;
-  font-family: "Montserrat Alternates";
-  font-size: 1.6rem;
-  color: #014045;
-  background: #bef3f8;
   margin: 0;
-  margin-bottom: 0.6rem;
+  width: 100%;
+  border: none;
+  color: #014045;
   margin-top: 3rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  background: #bef3f8;
   transition: all 0.2s;
+  margin-bottom: 0.6rem;
+  height: 5.2rem !important;
+  font-family: "Montserrat Alternates";
   &:hover {
     background: #2fe2f3;
   }
 `
 
 const isGoogleSignInStyles = css`
+  margin: 0;
   width: 100%;
+  color: #000;
   height: 5.2rem;
+  font-size: 1.6rem;
   border-radius: 1rem;
+  transition: all 0.2s;
+  margin-bottom: 0.6rem;
   border: 1px solid #cdcdcd;
   font-family: "Montserrat Alternates";
-  font-size: 1.6rem;
-  color: #000;
-  margin: 0;
-  margin-bottom: 0.6rem;
-  transition: all 0.2s;
   &:hover {
     opacity: 0.7;
   }
 `
 
 const isFacebookSignInStyles = css`
+  margin: 0;
   width: 100%;
+  color: #fff;
+  border: none;
   height: 5.2rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin-top: 1.5rem;
   border-radius: 1rem;
   background: #004da5;
-  border: none;
-  font-family: "Montserrat Alternates";
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  margin-bottom: 0.6rem;
-  margin-top: 1.5rem;
   transition: all 0.2s;
+  margin-bottom: 0.6rem;
+  font-family: "Montserrat Alternates";
   &:hover {
     opacity: 0.9;
   }
 `
 
 export const CustomButton = styled.button`
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
   ${getButtonStyle}
 `
 
 export const Register = styled(NavLink)`
-  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
   color: #014045;
   text-align: right;
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
+  font-size: 1.1rem;
   margin-bottom: 3rem;
+  text-decoration: none;
 `

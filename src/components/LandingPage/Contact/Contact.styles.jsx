@@ -1,19 +1,19 @@
 import styled from "styled-components"
 
 export const ContactContainer = styled.div`
-  width: 100%;
-  height: auto;
-  background-color: #fff;
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: auto;
   padding-bottom: 8rem;
+  background-color: #fff;
 `
 
 export const Container = styled.div`
-  width: 1100px;
-  max-width: 1100px;
-  margin: 0 auto;
   padding: 0;
+  width: 1100px;
+  margin: 0 auto;
+  max-width: 1100px;
 
   @media (max-width: 850px) {
     width: 768px;
@@ -27,21 +27,21 @@ export const Container = styled.div`
 `
 
 export const ContactTitle = styled.h2`
-  font-size: 3.2rem;
-  font-weight: 600;
-  color: #232829;
   margin: 0;
+  color: #232829;
+  font-weight: 600;
+  font-size: 3.2rem;
+  text-align: center;
   margin-bottom: 3rem;
   padding-top: ${props => (props.top ? `${props.top}px` : `0px`)};
-  text-align: center;
 `
 
 export const Split = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 4fr 4fr;
   grid-gap: 2rem;
   margin-bottom: 2rem;
+  grid-template-columns: 4fr 4fr;
 `
 
 export const Row = styled.div`
@@ -50,20 +50,20 @@ export const Row = styled.div`
 `
 
 export const Field = styled.input`
+  border: 0;
   width: 100%;
   height: 60px;
-  border: 0;
+  padding: 2rem;
+  color: #232829;
+  font-size: 1.6rem;
   border-radius: 10px;
   background: #f5f5f7;
-  color: #232829;
   font-family: "Montserrat Alternates";
-  font-size: 1.6rem;
-  padding: 2rem;
 
   &::placeholder {
-    font-family: "Montserrat Alternates";
     color: #232829;
     font-size: 1.6rem;
+    font-family: "Montserrat Alternates";
   }
 `
 
@@ -73,14 +73,14 @@ export const Form = styled.form`
 `
 
 export const ButtonWrapper = styled.button`
+  border: 0;
   width: 100%;
   height: 60px;
-  border: 0;
-  border-radius: 10px;
-  background: #bef3f8;
+  outline: none;
   color: #014045;
   cursor: pointer;
-  outline: none;
+  border-radius: 10px;
+  background: #bef3f8;
   transition: all 0.2s;
   &:hover {
     background: #2fe2f3;
@@ -88,11 +88,11 @@ export const ButtonWrapper = styled.button`
 `
 
 export const Submit = styled.input`
-  width: 100%;
   border: 0;
-  border-radius: 10px;
+  width: 100%;
+  font-weight: 600;
   background: none;
   font-size: 1.6rem;
-  font-weight: 600;
+  border-radius: 10px;
   font-family: "Montserrat Alternates";
 `

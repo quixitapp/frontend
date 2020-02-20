@@ -2,20 +2,20 @@ import styled from "styled-components"
 import storyBorder from "../../../assets/story_border.svg"
 
 export const StoryBoardContainer = styled.div`
-  width: 100%;
-  height: auto;
-  background-color: #fff;
   margin: 0;
   padding: 0;
-  padding-bottom: 6rem;
+  width: 100%;
+  height: auto;
   position: relative;
+  padding-bottom: 6rem;
+  background-color: #fff;
 `
 
 export const Container = styled.div`
-  width: 1100px;
-  max-width: 1100px;
-  margin: 0 auto;
   padding: 0;
+  width: 1100px;
+  margin: 0 auto;
+  max-width: 1100px;
 
   @media (max-width: 850px) {
     width: 768px;
@@ -29,10 +29,10 @@ export const Container = styled.div`
 `
 
 export const StoryBoardTitle = styled.h2`
-  font-size: 3.2rem;
-  font-weight: 600;
-  color: #232829;
   margin: 0;
+  color: #232829;
+  font-weight: 600;
+  font-size: 3.2rem;
   margin-bottom: 6rem;
 `
 
@@ -40,10 +40,10 @@ export const StepContainer = styled.div`
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(2, 4fr);
-  justify-items: space-between;
   align-items: center;
   margin-bottom: 8rem;
+  justify-items: space-between;
+  grid-template-columns: repeat(2, 4fr);
 `
 
 export const StoryImg = styled.img`
@@ -62,37 +62,37 @@ export const StepDesc = styled.div`
 `
 
 export const StoryTitle = styled.h3`
-  font-size: 1.9rem;
+  margin: 0;
   color: #014045;
   font-weight: 800;
-  margin: 0;
+  font-size: 1.9rem;
   margin-bottom: 10px;
 `
 
 export const AccentTitle = styled.h4`
-  font-size: 3.2rem;
+  margin: 0;
   color: #ffa714;
   font-weight: 400;
-  margin: 0;
+  font-size: 3.2rem;
   margin-bottom: 10px;
 `
 
 export const StoryText = styled.p`
-  font-size: 1.7rem;
+  margin: 0;
   color: #898c8c;
   line-height: 1.7;
   font-weight: 400;
-  margin: 0;
+  font-size: 1.7rem;
 `
 
 export const StoryBorder = styled.span`
-  background: url(${storyBorder}) no-repeat;
-  background-size: cover;
-  padding: 0;
   margin: 0;
-  position: absolute;
-  border: none;
+  padding: 0;
   width: 100%;
-  height: 160px;
   bottom: 0px;
+  border: none;
+  height: 160px;
+  position: absolute;
+  background-size: cover;
+  background: url(${storyBorder}) no-repeat;
 `
