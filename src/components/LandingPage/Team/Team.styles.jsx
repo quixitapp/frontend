@@ -116,6 +116,6 @@ export const TeamBorder = styled.span`
   border: none;
   height: 160px;
   position: absolute;
-  background-size: cover;
   background: url(${contact_border}) no-repeat;
+  background-size: cover;
 `

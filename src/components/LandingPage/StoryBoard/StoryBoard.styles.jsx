@@ -93,6 +93,6 @@ export const StoryBorder = styled.span`
   border: none;
   height: 160px;
   position: absolute;
-  background-size: cover;
   background: url(${storyBorder}) no-repeat;
+  background-size: cover;
 `
