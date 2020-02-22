@@ -1,8 +1,9 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
 
-import Backdrop from "../../CustomModal/Backdrop/Backdrop.component"
+import Overlay from "../../CustomModal/Overlay/Overlay.component"
 import Modal from "../../CustomModal/Modal/Modal.component"
+
 import Signup from "../Auth/Signup/Signup.component"
 
 import {
@@ -18,27 +19,23 @@ import {
 } from "./Header.styles"
 
 const Header = props => {
+  const { isOpen, closing, history, closeModal, openModal } = props
   return (
     <>
-      {props.isOpen && (
-        <Backdrop
-          closing={props.closing}
-          isOpen={props.isOpen}
-          closeModal={props.closeModal}
-          {...props}
+      {isOpen && (
+        <Overlay
+          closing={closing}
+          isOpen={isOpen}
+          history={history}
+          closeModal={closeModal}
         />
       )}
-      {/* {props.isOpen && (
-        <Modal closing={props.closing} isOpen={props.isOpen}>
-          <Signup />
-        </Modal>
-      )} */}
       <HeaderContainer>
         <Container>
           <ContainerFlex>
             <HeaderTitleContainer>
               <HeaderTitle>Home services, at a click of a button.</HeaderTitle>
-              <GetStarted onClick={props.openModal} to="/landing/signup">
+              <GetStarted onClick={openModal} to="/home/signup">
                 Get Started
               </GetStarted>
             </HeaderTitleContainer>
@@ -51,10 +48,10 @@ const Header = props => {
       </HeaderContainer>
       <Switch>
         <Route
-          path="/landing/signup"
-          render={props => {
+          path="/home/signup"
+          render={() => {
             return (
-              <Modal closing={props.closing} isOpen={props.isOpen}>
+              <Modal closing={closing} isOpen={isOpen} history={history}>
                 <Signup />
               </Modal>
             )

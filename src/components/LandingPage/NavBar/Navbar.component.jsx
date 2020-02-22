@@ -17,6 +17,7 @@ import {
 } from "./Navbar.styles.jsx"
 
 const NavBar = props => {
+  const { isOpen, closing, history, openModal } = props
   const navRef = useRef(null)
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +53,7 @@ const NavBar = props => {
               <PageLink to="#">Contact</PageLink>
               <PageLink to="#">About us</PageLink>
               <PageLink to="#">Become a Quixer</PageLink>
-              <PageLink onClick={props.openModal} to="/landing/login">
+              <PageLink onClick={openModal} to="/home/login">
                 Log in
               </PageLink>
             </Links>
@@ -61,10 +62,10 @@ const NavBar = props => {
       </StickyNav>
       <Switch>
         <Route
-          path="/landing/login"
-          render={props => {
+          path="/home/login"
+          render={() => {
             return (
-              <Modal closing={props.closing} isOpen={props.isOpen}>
+              <Modal closing={closing} isOpen={isOpen} history={history}>
                 <Login />
               </Modal>
             )

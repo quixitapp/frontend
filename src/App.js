@@ -1,17 +1,15 @@
 import React from "react"
-import { withRouter, Route, Switch } from "react-router-dom"
+import { withRouter, Route } from "react-router-dom"
 
 import LandingPage from "./pages/landingPage/landingPage.component"
+
 import OnBoardingPage from "./pages/onBoardingPage/onBoarding.component"
 
 function App(props) {
-  console.log(props.isOpen)
   return (
     <>
-      <Switch>
-        <Route path="/landing" render={props => <LandingPage {...props} />} />
-        <Route path="/onboarding" component={OnBoardingPage} />
-      </Switch>
+      <Route path="/home" render={props => <LandingPage {...props} />} />
+      <Route exact path="/onboarding" component={OnBoardingPage} />
     </>
   )
 }

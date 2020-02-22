@@ -205,7 +205,7 @@ const Signup = props => {
               <CustomButton>
                 <FormButton type="submit" value="Sign up" />
               </CustomButton>
-              <LoginBtn to="/landing/login">Already have an account?</LoginBtn>
+              <LoginBtn to="/home/login">Already have an account?</LoginBtn>
             </FieldContainer>
             <Instruction>Or connect with:</Instruction>
 
