@@ -100,9 +100,7 @@ const Login = props => {
               <CustomButton>
                 <FormButton type="submit" value="Log in" />
               </CustomButton>
-              <Register to="/landing/signup">
-                Need to create an account?
-              </Register>
+              <Register to="/home/signup">Need to create an account?</Register>
             </FieldContainer>
             <Instruction>Or connect with:</Instruction>
             <CustomButton isGoogleSignIn>
