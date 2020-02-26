@@ -1,0 +1,133 @@
+:root {
+  --screen-height: 100vh;
+  --screen-skeleton: linear-gradient(
+    #f0f0f3 var(--screen-height),
+    transparent 0
+  );
+
+  --brand-width: 48px;
+  --brand-height: 19px;
+  --brand-position: 40px 40px;
+  --brand-skeleton: linear-gradient(#d2d9db var(--brand-height), transparent 0);
+
+  --link-1-width: 94px;
+  --link-1-height: 19px;
+  --link-1-position: 40px 98px;
+  --link-1-skeleton: linear-gradient(
+    #d2d9db var(--link-1-height),
+    transparent 0
+  );
+
+  --link-2-width: 94px;
+  --link-2-height: 19px;
+  --link-2-position: 40px 137px;
+  --link-2-skeleton: linear-gradient(
+    #d2d9db var(--link-2-height),
+    transparent 0
+  );
+
+  --link-3-width: 94px;
+  --link-3-height: 19px;
+  --link-3-position: 40px 176px;
+  --link-3-skeleton: linear-gradient(
+    #d2d9db var(--link-3-height),
+    transparent 0
+  );
+
+  --link-4-width: 94px;
+  --link-4-height: 19px;
+  --link-4-position: 40px 92vh;
+  --link-4-skeleton: linear-gradient(
+    #d2d9db var(--link-4-height),
+    transparent 0
+  );
+
+  --link-5-width: 94px;
+  --link-5-height: 19px;
+  --link-5-position: 40px 95vh;
+  --link-5-skeleton: linear-gradient(
+    #d2d9db var(--link-5-height),
+    transparent 0
+  );
+
+  --side-nav-width: 9%;
+  --side-nav-height: 100vh;
+  --side-nav-position: 0px 0px;
+  --side-nav-skeleton: linear-gradient(
+    white var(--side-nav-height),
+    transparent 0
+  );
+
+  --title-width: 380px;
+  --title-height: 32px;
+  --title-skeleton: linear-gradient(#d2d9db var(--title-height), transparent 0);
+  --title-position: 53% 40px;
+  --address-width: 450px;
+  --address-height: 34px;
+  --address-position: 53% 112px;
+  --address-skeleton: linear-gradient(
+    #d2d9db var(--address-height),
+    transparent 0
+  );
+  --submit-width: 450px;
+  --submit-height: 34px;
+  --submit-position: 53% 166px;
+  --submit-skeleton: linear-gradient(
+    #d2d9db var(--submit-height),
+    transparent 0
+  );
+  --map-width: 88%;
+  --map-height: 89%;
+  --map-position: 89% 240px;
+  --map: linear-gradient(#d2d9db var(--map-height), transparent 0);
+  --blur-width: 600px;
+  --blur-size: var(--blur-width) 100%;
+}
+
+.skeleton {
+  height: var(--screen-height);
+  width: 100vw;
+  &:empty::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  background-image: linear-gradient(
+      90deg,
+      rgba(#f0f0f3, 0) 0,
+      rgba(#f0f0f3, 0.8) 80%,
+      rgba(#f0f0f3, 0) 100%
+    ),
+    var(--brand-skeleton), var(--link-1-skeleton), var(--link-2-skeleton),
+    var(--link-3-skeleton), var(--link-4-skeleton), var(--link-5-skeleton),
+    var(--side-nav-skeleton), var(--title-skeleton), var(--address-skeleton),
+    var(--submit-skeleton), var(--map), var(--screen-skeleton);
+
+  background-size: var(--blur-size), var(--brand-width) var(--brand-height),
+    var(--link-1-width) var(--link-1-height),
+    var(--link-2-width) var(--link-2-height),
+    var(--link-3-width) var(--link-3-height),
+    var(--link-4-width) var(--link-4-height),
+    var(--link-5-width) var(--link-4-height),
+    var(--side-nav-width) var(--side-nav-height),
+    var(--title-width) var(--side-nav-height),
+    var(--address-width) var(--address-height),
+    var(--submit-width) var(--submit-height), var(--map-width) var(--map-height),
+    100% 100%;
+  background-position: -650% 0, var(--brand-position), var(--link-1-position),
+    var(--link-2-position), var(--link-3-position), var(--link-4-position),
+    var(--link-5-position), var(--side-nav-position), var(--title-position),
+    var(--address-position), var(--submit-position), var(--map-position), 0 0;
+  background-repeat: no-repeat;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 250% 0, var(--brand-position), var(--link-1-position),
+      var(--link-2-position), var(--link-3-position), var(--link-4-position),
+      var(--link-5-position), var(--side-nav-position), var(--title-position),
+      var(--address-position), var(--submit-position), var(--map-position), 0 0;
+  }
+}
