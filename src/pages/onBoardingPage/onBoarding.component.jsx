@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { connect } from "react-redux"
-import { editProfile } from "../../redux/actions"
+// import { editProfile } from "../../redux/actions"
 
 import SideNav from "../../components/SideNav/SideNav.component"
 import Map from "../../components/GoogleMaps/GoogleMaps.component"
@@ -79,11 +78,11 @@ const OnBoardingPage = props => {
   )
 }
 
-const mapStateToProps = ({ editProfileReducer }) => {
-  return {
-    editing: editProfileReducer.editing,
-    user: editProfileReducer.user,
-  }
-}
+// const mapStateToProps = ({ editProfileReducer }) => {
+//   return {
+//     editing: editProfileReducer.editing,
+//     user: editProfileReducer.user,
+//   }
+// }
 
-export default connect(mapStateToProps, { editProfile })(OnBoardingPage)
+export default OnBoardingPage

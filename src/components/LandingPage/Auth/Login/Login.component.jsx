@@ -1,10 +1,9 @@
 import React, { useState } from "react"
-import { connect } from "react-redux"
-import validator from "validator"
+// import { connect } from "react-redux"
 
 // Actions
-import { auth } from "../../../../configs/firebase"
-import { logUser } from "../../../../redux/actions"
+// import { auth } from "../../../../configs/firebase"
+// import { logUser } from "../../../../redux/actions"
 
 // Styled Components
 import {
@@ -34,43 +33,23 @@ const Login = props => {
 
     // Sanitze inputs---------------
 
-    if (
-      validator.isEmail(email) &&
-      validator.isByteLength(
-        email,
-        { min: 6, max: 64 } &&
-          validator.isByteLength(password, { min: 6, max: 128 })
-      )
-    ) {
-      validator.normalizeEmail(email)
-      validator.ltrim(email)
-      validator.ltrim(password)
-      validator.rtrim(email)
-      validator.rtrim(password)
-      validator.unescape(password)
+    // auth
+    //   .signInWithEmailAndPassword(email, password)
+    //   .catch(({ code, message }) => {
+    //     console.log(code)
+    //     console.log(message)
+    //   })
 
-      // Sanitze inputs---------------
-
-      auth
-        .signInWithEmailAndPassword(email, password)
-        .catch(({ code, message }) => {
-          console.log(code)
-          console.log(message)
-        })
-
-      auth.currentUser
-        .getIdToken(true)
-        .then(idToken => {
-          localStorage.setItem("idToken", idToken)
-          props.logUser(idToken)
-          props.history.push("/onboarding")
-        })
-        .catch(({ message }) => console.log(message))
-    } else {
-      props.history.push("/home")
-      console.log("Invalid email or Password!")
-    }
+    // auth.currentUser
+    //   .getIdToken(true)
+    //   .then(idToken => {
+    //     localStorage.setItem("idToken", idToken)
+    //     props.logUser(idToken)
+    //     props.history.push("/onboarding")
+    //   })
+    //   .catch(({ message }) => console.log(message))
   }
+
   return (
     <LoginContainer>
       <Brand>
@@ -120,10 +99,10 @@ const Login = props => {
   )
 }
 
-const mapStateToProps = ({ logUserReducer }) => {
-  return {
-    user: logUserReducer.user,
-  }
-}
+// const mapStateToProps = ({ logUserReducer }) => {
+//   return {
+//     user: logUserReducer.user,
+//   }
+// }
 
-export default connect(mapStateToProps, { logUser })(Login)
+export default Login

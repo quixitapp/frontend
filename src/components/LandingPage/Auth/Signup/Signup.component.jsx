@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { connect } from "react-redux"
-import { sendToken, registerUser } from "../../../../redux/actions"
-import { auth, provider } from "../../../../configs/firebase"
+// import { connect } from "react-redux"
+// import { sendToken, registerUser } from "../../../../redux/actions"
+// import { auth, provider } from "../../../../configs/firebase"
 
 import {
   RegisterContainer,
@@ -40,55 +40,55 @@ const Signup = props => {
 
   const onSubmit = e => {
     e.preventDefault()
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .catch(({ message }) => console.log(message))
+    // auth
+    //   .createUserWithEmailAndPassword(email, password)
+    //   .catch(({ message }) => console.log(message))
 
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        user
-          .getIdToken(true)
-          .then(idToken => {
-            localStorage.setItem("idToken", idToken)
-            if (idToken) {
-              if (!isContractor) {
-                const homeowner = {
-                  uid: user.uid,
-                  firstName,
-                  lastName,
-                  isContractor: false,
-                  email,
-                }
-                props.sendToken(idToken)
-                props.registerUser(homeowner)
-              } else {
-                const contractor = {
-                  uid: user.uid,
-                  firstName,
-                  lastName,
-                  isContractor,
-                  category,
-                  zipCode,
-                  email,
-                }
-                props.sendToken(idToken)
-                props.registerUser(contractor)
-              }
-            } else console.log("Not logged in.")
-          })
-          .catch(err => console.log(err))
-      } else {
-        console.log("error")
-      }
-    })
+    // auth.onAuthStateChanged(user => {
+    //   if (user) {
+    //     user
+    //       .getIdToken(true)
+    //       .then(idToken => {
+    //         localStorage.setItem("idToken", idToken)
+    //         if (idToken) {
+    //           if (!isContractor) {
+    //             const homeowner = {
+    //               uid: user.uid,
+    //               firstName,
+    //               lastName,
+    //               isContractor: false,
+    //               email,
+    //             }
+    //             props.sendToken(idToken)
+    //             props.registerUser(homeowner)
+    //           } else {
+    //             const contractor = {
+    //               uid: user.uid,
+    //               firstName,
+    //               lastName,
+    //               isContractor,
+    //               category,
+    //               zipCode,
+    //               email,
+    //             }
+    //             props.sendToken(idToken)
+    //             props.registerUser(contractor)
+    //           }
+    //         } else console.log("Not logged in.")
+    //       })
+    //       .catch(err => console.log(err))
+    //   } else {
+    //     console.log("error")
+    //   }
+    // })
   }
 
-  const googleSingIn = () => {
-    auth.signInWithPopup(provider).then(result => {
-      const user = result.user
-      console.log(user)
-    })
-  }
+  // const googleSingIn = () => {
+  //   auth.signInWithPopup(provider).then(result => {
+  //     const user = result.user
+  //     console.log(user)
+  //   })
+  // }
 
   const renderCheckBox = () => {
     if (!isContractor) {
@@ -212,7 +212,7 @@ const Signup = props => {
             <CustomButton isGoogleSignIn>
               <FormButton
                 google
-                onClick={() => googleSingIn()}
+                // onClick={() => googleSingIn()}
                 type="submit"
                 value="Continue with Google"
               />
@@ -232,11 +232,11 @@ const Signup = props => {
   )
 }
 
-const mapStateToProps = ({ setTokenReducer, setUserReducer }) => {
-  return {
-    idToken: setTokenReducer.idToken,
-    user: setUserReducer.user,
-  }
-}
+// const mapStateToProps = ({ setTokenReducer, setUserReducer }) => {
+//   return {
+//     idToken: setTokenReducer.idToken,
+//     user: setUserReducer.user,
+//   }
+// }
 
-export default connect(mapStateToProps, { sendToken, registerUser })(Signup)
+export default Signup

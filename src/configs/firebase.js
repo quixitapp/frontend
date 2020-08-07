@@ -1,31 +1,31 @@
-import * as firebase from "firebase/app"
-import "firebase/auth"
-import { config } from "./firebase-variables"
+// import * as firebase from "firebase/app"
+// import "firebase/auth"
+// import { config } from "./firebase-variables"
 
-const {
-  apiKey,
-  authDomain,
-  databaseURL,
-  projectId,
-  storageBucket,
-  messagingSenderId,
-  appId,
-} = config
+// const {
+//   apiKey,
+//   authDomain,
+//   databaseURL,
+//   projectId,
+//   storageBucket,
+//   messagingSenderId,
+//   appId,
+// } = config
 
-const firebaseConfig = {
-  apiKey,
-  authDomain,
-  databaseURL,
-  projectId,
-  storageBucket,
-  messagingSenderId,
-  appId,
-}
+// const firebaseConfig = {
+//   apiKey,
+//   authDomain,
+//   databaseURL,
+//   projectId,
+//   storageBucket,
+//   messagingSenderId,
+//   appId,
+// }
 
-firebase.initializeApp(firebaseConfig)
+// firebase.initializeApp(firebaseConfig)
 
-export const provider = new firebase.auth.GoogleAuthProvider()
+// export const provider = new firebase.auth.GoogleAuthProvider()
 
-export const auth = firebase.auth()
+// export const auth = firebase.auth()
 
-export default firebase
+// export default firebase
